@@ -29,4 +29,5 @@ Temporary Items
 #/composer.lock
 #/package-lock.json
 /.idea/
+/dist
 /vendor
