@@ -68,8 +68,11 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
+= 0.0.3 =
+Trying out tag triggers
+
 = 0.0.2 =
-Trying out tag triggers 
+Trying out tag triggers
 
 = 0.0.1 =
 Initial Dev
