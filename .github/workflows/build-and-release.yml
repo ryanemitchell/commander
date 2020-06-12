@@ -33,28 +33,17 @@ jobs:
         run: npm run production --if-present
       - name: remove node modules
         run: rm -R node_modules
-      - name: echo commit description
-        run: echo '${{ github.event.head_commit.message }}'
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v1
-        with:
-          name: dist
-          path: dist
-      - name: Git Commit and Push w/ Force Push
-        uses: dciborow/commit@0.0.1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          push-branch: 'release_${{ github.event.head_commit.message }}'
-          commit-message: 'build for release_${{ github.event.head_commit }} '
-          #           force-add: 'true'
-          force-push: 'true'
-          name: ${{ github.event.pusher.name }}
-          email: ${{ github.event.pusher.email }}
-      - name: Archive Release
-        uses: thedoctor0/zip-release@master
-        with:
-          filename: 'release.zip'
-          exclusions: '*.git* /*node_modules/* .editorconfig'
+      # - name: Archive production artifacts
+      #   uses: actions/upload-artifact@v1
+      #   with:
+      #     name: dist
+      #     path: dist
+
+      # - name: Archive Release
+      #   uses: thedoctor0/zip-release@master
+      #   with:
+      #     filename: 'release.zip'
+      #     exclusions: '*.git* /*node_modules/* .editorconfig'
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -67,5 +56,19 @@ jobs:
             Release_${{ github.event.head_commit.message }}
           draft: false
           prerelease: false
+      - name: remove vendor
+        run: rm -R vendor
+      - name: remove dist
+        run: rm -R dist
+      - name: Git Commit and Push w/ Force Push
+        uses: dciborow/commit@0.0.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          push-branch: 'release_${{ github.event.head_commit.message }}'
+          commit-message: 'build for release_${{ github.event.head_commit }} '
+          #           force-add: 'true'
+          force-push: 'true'
+          name: ${{ github.event.pusher.name }}
+          email: ${{ github.event.pusher.email }}
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
