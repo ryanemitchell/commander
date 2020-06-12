@@ -4,7 +4,7 @@
     Plugin Name: Wit Commander 10
     Plugin URI: https://witdelivers.com
     Description: WordPress plugin that provides base functionality for use with Wit Digital themes and plugins
-    Version: 0.0.7
+    Version: 0.0.8
     Author: Ryan E. Mitchell
     Author URI: https://witdelivers.com
     Text Domain: witcom
