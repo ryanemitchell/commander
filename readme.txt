@@ -68,6 +68,10 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
+= 0.0.7 =
+change github repo to private
+
+
 = 0.0.6 =
 testing out versioning
 
