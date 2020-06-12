@@ -34,13 +34,13 @@
 
 
     $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-        'https://github.com/ryanemitchell/wit-commander-test/',
+        'https://github.com/ryanemitchell/commander/',
         __FILE__, //Full path to the main plugin file or functions.php.
         'wit-commander-10'
     );
 
 //    $myUpdateChecker->setAuthentication('f6c9d5d85636f2c030a9896d5a38e946da31818f');
-    $myUpdateChecker->setBranch('stable');
+    $myUpdateChecker->setBranch('master');
 
 
     //  Load up witlib Files
@@ -75,9 +75,3 @@
     class WitCommander {
 
     }
-
-
-
-
-
-
