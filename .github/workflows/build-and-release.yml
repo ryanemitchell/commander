@@ -2,8 +2,10 @@ name: Build and Push to release branch
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - master
+          tags:
+            - 'v*'
 
 jobs:
   build:
@@ -65,7 +67,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           push-branch: 'release_${{ github.event.head_commit.message }}'
-          commit-message: 'build for release_${{ github.event.head_commit.message }} '
+          commit-message: 'build for release_${{ github.event.head_commit }} '
           force-add: 'true'
           force-push: 'true'
           name: ${{ github.event.pusher.name }}
