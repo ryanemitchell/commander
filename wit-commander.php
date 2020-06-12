@@ -39,7 +39,7 @@
         'wit-commander-10'
     );
 
-//    $myUpdateChecker->setAuthentication('f6c9d5d85636f2c030a9896d5a38e946da31818f');
+    $myUpdateChecker->setAuthentication('f6c9d5d85636f2c030a9896d5a38e946da31818f');
     $myUpdateChecker->setBranch('master');
 
 
