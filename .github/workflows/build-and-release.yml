@@ -56,17 +56,17 @@ jobs:
             Release_${{ github.event.head_commit.message }}
           draft: false
           prerelease: false
-      - name: remove vendor
-        run: rm -R vendor
-      - name: remove dist
-        run: rm -R dist
+      # - name: remove vendor
+      #   run: rm -R vendor
+      # - name: remove dist
+      #   run: rm -R dist
       - name: Git Commit and Push w/ Force Push
         uses: dciborow/commit@0.0.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           push-branch: 'release_${{ github.event.head_commit.message }}'
           commit-message: 'build for release_${{ github.event.head_commit }} '
-          #           force-add: 'true'
+          force-add: 'true'
           force-push: 'true'
           name: ${{ github.event.pusher.name }}
           email: ${{ github.event.pusher.email }}
