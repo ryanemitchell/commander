@@ -39,7 +39,7 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           filename: 'commander.zip'
-          exclusions: '.* /.* */*.* /*src/*'
+          exclusions: '/*src/* /*.git/* /*github/* webpack.mix.js mix-manifest.json package-lock.json composer.json composer.lock package.json'
       - name: List all Files # This would actually build your project, using zip for an example artifact
         run: |
           ls -al
