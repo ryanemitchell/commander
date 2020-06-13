@@ -80,6 +80,8 @@ jobs:
           asset_path: ./commander.zip
           asset_name: commander.zip
           asset_content_type: application/zip
+      - name: remove zip for new branch
+        run: rm commander.zip
       - name: Git Commit and Push w/ Force Push
         uses: dciborow/commit@0.0.1
         with:
