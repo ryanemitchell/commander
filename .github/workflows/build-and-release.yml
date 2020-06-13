@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - master
-    tags:
-      - 'v*'
+#    tags:
+#      - 'v*'
 
 jobs:
   build:
@@ -35,6 +35,12 @@ jobs:
         run: npm run production --if-present
       - name: remove node modules
         run: rm -R node_modules
+      - name: Zip project # This would actually build your project, using zip for an example artifact
+        run: |
+          zip -r commander.zip
+      - name: List all Files # This would actually build your project, using zip for an example artifact
+        run: |
+          ls -al
       # - name: Archive production artifacts
       #   uses: actions/upload-artifact@v1
       #   with:
@@ -62,6 +68,16 @@ jobs:
       #   run: rm -R vendor
       # - name: remove dist
       #   run: rm -R dist
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          asset_path: ./commander.zip
+          asset_name: commander.zip
+          asset_content_type: application/zip
       - name: Git Commit and Push w/ Force Push
         uses: dciborow/commit@0.0.1
         with:
