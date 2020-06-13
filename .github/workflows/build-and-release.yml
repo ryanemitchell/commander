@@ -2,10 +2,8 @@ name: Build and Push to release branch
 
 on:
   push:
-    branches:
-      - master
     tags:
-      - 'v*'
+      - '*'
 jobs:
   build:
 
