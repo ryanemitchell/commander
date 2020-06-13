@@ -39,7 +39,7 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           filename: 'commander.zip'
-          exclusions: '*.** *.* /*src/* /.github'
+          exclusions: '*.** *.* /*src/* /*.github/* .editorconfig'
       - name: List all Files # This would actually build your project, using zip for an example artifact
         run: |
           ls -al
