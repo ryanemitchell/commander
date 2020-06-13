@@ -34,6 +34,9 @@ jobs:
         run: npm run production --if-present
       - name: remove node modules
         run: rm -R node_modules
+      - name: Get Tag Name
+        uses: olegtarasov/get-tag@v2
+        id: tagName
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:
@@ -86,7 +89,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           push-branch: 'release_${{ github.event.head_commit.message }}'
-          commit-message: 'build for release_${{ github.event.head_commit }} '
+          commit-message: 'build for release_${{ steps.tagName.outputs.tag }} '
           force-add: 'true'
           force-push: 'true'
           name: ${{ github.event.pusher.name }}
