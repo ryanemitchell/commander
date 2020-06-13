@@ -34,11 +34,11 @@ jobs:
         run: npm run production --if-present
       - name: remove node modules
         run: rm -R node_modules
-      - name: Get Tag Name
-        uses: olegtarasov/get-tag@v2
-        id: tagName
+      - name: Get tag
+        id: tag
+        uses: dawidd6/action-get-tag@v1
       - name: show tagname
-        run: echo '${{ steps.tagName.outputs.tag }}'
+        run: echo ${{steps.tag.outputs.tag}}
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:
