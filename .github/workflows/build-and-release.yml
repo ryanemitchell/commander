@@ -91,7 +91,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           push-branch: 'release_${{ github.event.head_commit.message }}'
-          commit-message: 'build for release_${{ github.event.head_commit.message }}'
+          commit-message: 'release_${{ github.event.head_commit.message }} workflow'
           force-add: 'true'
           force-push: 'true'
           name: ${{ github.event.pusher.name }}
